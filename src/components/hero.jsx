@@ -161,7 +161,7 @@ const Hero = () => {
 
     const origin = encodeURIComponent(pickup)
     const dest = encodeURIComponent(destination)
-    const apiKey = "AIzaSyCDjTb-xg_WWmZiMbZsyvEzPCrM-icBjS4"
+    const apiKey = "enter you r google api key here"
     const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin}&destinations=${dest}&key=${apiKey}`
 
     const response = await fetch(`/api/proxy?url=${encodeURIComponent(url)}`)
