@@ -22,11 +22,13 @@ const Header = () => {
           </a>
           <a href="tel:+919999955712" className="flex items-center text-gray-700 hover:text-yellow-500">
             <Phone className="h-4 w-4 mr-2" />
-            <span>+91 9999 955 712</span>
+            <span>+91 7535 9646 12</span>
           </a>
           <a href="tel:+918800550676" className="flex items-center text-gray-700 hover:text-yellow-500">
             <Phone className="h-4 w-4 mr-2" />
-            <span>+91 8800 550 676</span>
+            <span>+91 8650 5434 23
+              
+            </span>
           </a>
           <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors">
             CALL ME BACK

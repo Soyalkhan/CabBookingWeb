@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#0a1e3c] text-white">
+    <footer className="bg-[#232221] text-white border-t border-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* CONTACT INFO */}
@@ -166,7 +166,7 @@ const Footer = () => {
 
       {/* Chat Button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <button className="bg-purple-600 hover:bg-purple-700 text-white rounded-full p-4 shadow-lg flex items-center">
+        <button className="bg-yellow-600 hover:bg-yellow-800 text-white rounded-full p-4 shadow-lg flex items-center cursor-pointer transition-colors">
           <MessageCircle className="h-6 w-6 mr-2" />
           <span>Chat with us</span>
         </button>
