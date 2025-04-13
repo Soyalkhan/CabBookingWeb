@@ -27,61 +27,29 @@ const Footer = () => {
 
             <h4 className="text-lg font-bold mt-8 mb-4">Follow Us</h4>
             <div className="flex space-x-3">
-              <a
+              {/* <a
                 href="#"
-                className="bg-[#1DA1F2] hover:opacity-80 transition-opacity p-2 rounded-full"
+                className=" hover:opacity-80 transition-opacity p-2 rounded-full"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
-              </a>
+              </a> */}
               <a
                 href="#"
-                className="bg-[#E1306C] hover:opacity-80 transition-opacity p-2 rounded-full"
+                className="hover:opacity-80 transition-opacity p-2 rounded-full"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="bg-[#4267B2] hover:opacity-80 transition-opacity p-2 rounded-full"
+                className=" hover:opacity-80 transition-opacity p-2 rounded-full"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a
-                href="#"
-                className="bg-[#0077B5] hover:opacity-80 transition-opacity p-2 rounded-full"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-[#E60023] hover:opacity-80 transition-opacity p-2 rounded-full"
-                aria-label="Pinterest"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0z" />
-                  <path d="M12 2v2" />
-                  <path d="M12 20v2" />
-                  <path d="m4.93 4.93 1.41 1.41" />
-                  <path d="m17.66 17.66 1.41 1.41" />
-                  <path d="M2 12h2" />
-                  <path d="M20 12h2" />
-                  <path d="m6.34 17.66-1.41 1.41" />
-                  <path d="m19.07 4.93-1.41 1.41" />
-                </svg>
-              </a>
+           
+              
             </div>
           </div>
 
