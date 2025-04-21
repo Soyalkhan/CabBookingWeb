@@ -140,7 +140,7 @@
 // export default Hero
 "use client"
 import React, { useState } from "react"
-import { Calendar, Car, Briefcase, MapPin, Phone, Check } from "lucide-react"
+import { Calendar, Car, Briefcase, MapPin, Phone, Check , ArrowRightLeft } from "lucide-react"
 
 const Hero = () => {
   const [tripType, setTripType] = useState("One-Way")
@@ -175,13 +175,13 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative w-full h-[600px] bg-black/70 text-white">
+    <section className="relative w-full h-[800px] bg-black/10 text-white">
       {/* Background Image */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center z-0"
         style={{
-          backgroundImage: "url(/placeholder.svg?height=600&width=1200)",
-          filter: "brightness(0.4)",
+          backgroundImage: "url(/banner2.png)",
+          filter: "brightness(1)",
         }}
       ></div>
 
@@ -219,7 +219,7 @@ const Hero = () => {
           </div>
 
           {/* Booking Form */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 justify-between align-center">
             <div>
               <label className="block mb-2">Pickup City</label>
               <div className="relative">
@@ -231,10 +231,16 @@ const Hero = () => {
                   onChange={(e) => setPickup(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-white text-black rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
+                
               </div>
+              
             </div>
 
+  
+
+
             <div>
+              
               <label className="block mb-2">Destination City</label>
               <div className="relative">
                 <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />

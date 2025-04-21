@@ -128,7 +128,7 @@ const Footer = () => {
       {/* Copyright */}
       <div className="border-t border-gray-800 py-6">
         <div className="container mx-auto px-4 text-center text-gray-400">
-          Copyright © Bharat Taxi {currentYear}. All Right Reserved
+          Copyright © bookmycab {currentYear}. All Right Reserved
         </div>
       </div>
 

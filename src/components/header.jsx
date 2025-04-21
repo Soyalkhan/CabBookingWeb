@@ -1,15 +1,15 @@
 import React from 'react'
-import { Phone, MessageSquare, Menu } from "lucide-react"
+import { Phone, MessageSquare, Menu, User } from "lucide-react"
 
 const Header = () => {
   return (
     <header className="bg-white py-4 px-6 shadow-sm">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center">
+        <div className="flex items-center ml-12">
           <a href="/" className="flex items-center">
-            {/* <img src="/logo.png" alt="Tajwali Cabs" className="h-10" /> */}
+            <img src="/logov2.png" alt="bookmyCabs" className="h-10" />
             <span className="ml-2 text-yellow-500 font-bold text-3xl">
-              Bookmy<span className="text-black">cab</span>
+              {/* Bookmy<span className="text-black">cab</span> */}
             </span>
             {/* <span className="text-xs text-gray-500 ml-2">Travel with ease</span> */}
           </a>
@@ -30,9 +30,15 @@ const Header = () => {
 
             </span>
           </a>
-          <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors">
+          {/* <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors">
             CALL ME BACK
-          </button>
+          </button> */}
+          <a href="tel:+918800550676" className="flex items-center text-gray-700 hover:text-yellow-500">
+            <User className="h-4 w-4 mr-2" />
+            <span>SignIn
+
+            </span>
+          </a>
         </div>
 
         <button className="md:hidden text-gray-700">
