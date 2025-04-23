@@ -11,6 +11,7 @@ import Whychooseus from "./components/why-choose-us";
 import GetInTouch from "./components/get-in-touch";
 import SignupPage from "./pages/signup-page"; // Import SignupPage
 import LoginPage from "./pages/login-page"; // Import SignupPage
+import ProfilePage from "./pages/profilePage";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App() {
   return (
     <Router>
       <Header />
+    
       <Routes>
         <Route
           path="/"
@@ -34,7 +36,7 @@ function App() {
         {/* Home page */}
         <Route path="/signup" element={<SignupPage />} /> {/* Signup page */}
         <Route path="/login" element={<LoginPage />} /> {/* Signup page */}
-        {/* Add more routes here for other components */}
+       <Route path="/profile" element={<ProfilePage/>} /> {/* Profile page */}
       </Routes>
       {/* <PopularRoutes /> */}
 
