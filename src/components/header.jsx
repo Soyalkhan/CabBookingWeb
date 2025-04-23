@@ -1,5 +1,6 @@
-import React from 'react'
-import { Phone, MessageSquare, Menu, User } from "lucide-react"
+import React from 'react';
+import { Phone, MessageSquare, Menu, User } from "lucide-react";
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 
 const Header = () => {
   return (
@@ -11,7 +12,6 @@ const Header = () => {
             <span className="ml-2 text-yellow-500 font-bold text-3xl">
               {/* Bookmy<span className="text-black">cab</span> */}
             </span>
-            {/* <span className="text-xs text-gray-500 ml-2">Travel with ease</span> */}
           </a>
         </div>
 
@@ -26,19 +26,14 @@ const Header = () => {
           </a>
           <a href="tel:+918800550676" className="flex items-center text-gray-700 hover:text-yellow-500">
             <Phone className="h-4 w-4 mr-2" />
-            <span>+91 8650 5434 23
-
-            </span>
+            <span>+91 8650 5434 23</span>
           </a>
-          {/* <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors">
-            CALL ME BACK
-          </button> */}
-          <a href="tel:+918800550676" className="flex items-center text-gray-700 hover:text-yellow-500">
+
+          {/* Use Link for navigation */}
+          <Link to="/signup" className="flex items-center text-gray-700 hover:text-yellow-500">
             <User className="h-4 w-4 mr-2" />
-            <span>SignIn
-
-            </span>
-          </a>
+            <span>SIGNUP</span>
+          </Link>
         </div>
 
         <button className="md:hidden text-gray-700">
@@ -46,7 +41,7 @@ const Header = () => {
         </button>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
