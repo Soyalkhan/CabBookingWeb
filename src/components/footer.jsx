@@ -133,12 +133,12 @@ const Footer = () => {
       </div>
 
       {/* Chat Button */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <button className="bg-yellow-600 hover:bg-yellow-800 text-white rounded-full p-4 shadow-lg flex items-center cursor-pointer transition-colors">
-          <MessageCircle className="h-6 w-6 mr-2" />
-          <span>Chat with us</span>
-        </button>
-      </div>
+        {/* <div className="fixed bottom-6 right-6 z-50">
+          <button className="bg-yellow-600 hover:bg-yellow-800 text-white rounded-full p-4 shadow-lg flex items-center cursor-pointer transition-colors">
+            <MessageCircle className="h-6 w-6 mr-2" />
+            <span>Chat with us</span>
+          </button>
+        </div> */}
     </footer>
   )
 }
