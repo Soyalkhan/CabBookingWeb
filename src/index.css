@@ -1,53 +1,64 @@
 @import "tailwindcss";
 
-
+/* hide number-input spinners */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-
-
-@font-face {
-  font-family: 'Gilroy-Bold';
-  src: url('/fonts/Gilroy-Bold.woff') format('woff');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: 'Gilroy-Heavy';
-  src: url('/fonts/Gilroy-Heavy.woff') format('woff');
-  font-weight: 900;
-}
+/* ─── FONT FACE REGISTRATIONS ─────────────────────────────────────────────── */
 
 @font-face {
   font-family: 'Gilroy-Light';
-  src: url('/fonts/Gilroy-Light.woff') format('woff');
+  src: url('/font/Gilroy-Light.ttf') format('truetype');
   font-weight: 300;
-}
-
-@font-face {
-  font-family: 'Gilroy-Medium';
-  src: url('/fonts/Gilroy-Medium.woff') format('woff');
-  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Gilroy-Regular';
-  src: url('/fonts/Gilroy-Regular.woff') format('woff');
-  font-weight: normal;
+  src: url('/font/Gilroy-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }
 
-/* Apply Default Font to Body */
-body {
-  font-family: 'Gilroy-Regular', sans-serif;
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: url('/font/Gilroy-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: url('/font/Gilroy-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy-Heavy';
+  src: url('/font/Gilroy-Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* ─── GLOBAL ELEMENT STYLES ───────────────────────────────────────────────── */
+
+html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  /* default text in the “Regular” weight */
+  font-family: 'Gilroy-Regular', sans-serif;
+}
+
 h1 {
+  /* headings use the Bold weight */
   font-family: 'Gilroy-Bold', sans-serif;
 }
 

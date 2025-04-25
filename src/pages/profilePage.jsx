@@ -1,5 +1,6 @@
 "use client"
 import React from "react";
+
 import { useLocation } from "react-router-dom"; 
 import { useState } from "react"
 import {
@@ -105,7 +106,7 @@ export default function ProfilePage() {
                   <User className="w-12 h-12 text-blue-500" />
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-6 text-center sm:text-left">
-                  <h2 className="text-xl font-semibold">{user.name}</h2>
+                  <h2 className="text-xl font-semibold">{}Soyal Khan</h2>
                   <p className="text-gray-500">Team Manager</p>
                   <p className="text-gray-500 text-sm">Leeds, United Kingdom</p>
                 </div>

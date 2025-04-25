@@ -14,7 +14,7 @@ const PopularRoutes = ({ onRouteClick }) => {
     },
     {
       id: 2,
-      from: "Gurgaon",
+      from: "Delhi",
       to: "Taxi Service",
       image: "/placeholder.svg?height=300&width=400",
       taxiCount: "100+ Taxis",
@@ -30,8 +30,8 @@ const PopularRoutes = ({ onRouteClick }) => {
     },
     {
       id: 4,
-      from: "Noida",
-      to: "Agra",
+      from: "Delhi",
+      to: "Kotdwar",
       image: "/placeholder.svg?height=300&width=400",
       taxiCount: "100+ Taxis",
       slug: "noida-to-agra-cabs",
@@ -41,10 +41,10 @@ const PopularRoutes = ({ onRouteClick }) => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Best Cab Service In Gurgaon And Delhi</h2>
+        <div className="text-center mb-12 mt-12">
+          <h2 className="text-6xl md:text-4xl font-bold mb-3">Best Cab Service In Gurgaon And Delhi or uttrakhand</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            Tajwaycabs offers city taxis, inter-city cabs, and local cabs at hourly packages.
+            Bookmycab.co offers city taxis, inter-city cabs, and local cabs at hourly packages.
           </p>
         </div>
 
