@@ -13,6 +13,7 @@ import SignupPage from "./pages/signup-page"; // Import SignupPage
 import LoginPage from "./pages/login-page"; // Import SignupPage
 import ProfilePage from "./pages/profilePage";
 import CarBookingPage from "./pages/cabSelectionPage";
+import ContactForm from "./pages/contact";
 
 import "./App.css";
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} /> {/* Signup page */}
        <Route path="/profile" element={<ProfilePage/>} /> {/* Profile page */}
        <Route path="/booking-summary" element={<CarBookingPage/>} /> {/* cabs page */}
+       <Route path="/contact" element={<ContactForm/>} /> {/* cabs page */}
       </Routes>
       {/* <PopularRoutes /> */}
 
