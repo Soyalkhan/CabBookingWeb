@@ -352,7 +352,7 @@ export default function LoginPage() {
         <div
           className="h-full w-full bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-J5qIffvW8VCxmcHlphoawtdL5s6YY9.png')`,
+            backgroundImage: `url('/login-banner.jpg')`,
             backgroundPosition: "center right",
           }}
         />

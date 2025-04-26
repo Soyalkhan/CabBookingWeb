@@ -107,6 +107,8 @@ const Header = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth); // State to track screen width
   const navigate = useNavigate();
 
+
+  
   // Check if user is logged in by reading authToken from localStorage
   const isLoggedIn = !!localStorage.getItem("authToken");
   const userName = localStorage.getItem("userName") || "User"; // Get the user's name from localStorage
@@ -117,6 +119,50 @@ const Header = () => {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+
+
+  const [user, setUser] = useState(null); // State to store user details
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      const token = localStorage.getItem("authToken");
+
+      if (!token) {
+       
+        console.log("User not logged in.");
+        return; 
+      } else {
+      
+        try {
+          const response = await fetch("http://localhost:5000/api/auth/me", {
+            method: "GET",
+            headers: {
+              "Authorization": `Bearer ${token}`, // Send token in the header
+            },
+          });
+
+          const data = await response.json();
+          if (response.ok) {
+            setUser(data.user); // Set user details from response
+            console.log("User Details:", data.user); // Log user details
+          } else {
+            // Handle error if token is invalid or expired
+            toast.error(data.msg || "Unable to fetch user details", {
+              position: toast.POSITION.TOP_RIGHT,
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+          toast.error("An error occurred. Please try again later.", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
+      }
+    };
+
+    fetchUserDetails();
   }, []);
 
   const handleSignOut = () => {
@@ -190,7 +236,7 @@ const Header = () => {
                   className="flex items-center text-gray-700 hover:text-yellow-500"
                 >
                   <CircleUser className="h-5 w-5 mr-2" />
-                  <span>{userName}</span>
+                  <span>{user?.name}</span>
                 </button>
                 {isProfileMenuOpen && (
                   <div className="absolute right-0 mt-2 bg-white border border-gray-300 shadow-lg rounded-md w-48">

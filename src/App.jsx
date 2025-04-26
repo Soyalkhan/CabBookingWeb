@@ -21,7 +21,7 @@ function App() {
   return (
     <Router>
       <Header />
-    
+
       <Routes>
         <Route
           path="/"
@@ -38,9 +38,14 @@ function App() {
         {/* Home page */}
         <Route path="/signup" element={<SignupPage />} /> {/* Signup page */}
         <Route path="/login" element={<LoginPage />} /> {/* Signup page */}
-       <Route path="/profile" element={<ProfilePage/>} /> {/* Profile page */}
-       <Route path="/booking-summary" element={<CarBookingPage/>} /> {/* cabs page */}
-       <Route path="/contact" element={<ContactForm/>} /> {/* cabs page */}
+        <Route
+          path="/profile"
+          element={<ProtectedRoute Component={ProfilePage} />}
+        />{" "}
+        {/* Profile page */}
+        <Route path="/booking-summary" element={<CarBookingPage />} />{" "}
+        {/* cabs page */}
+        <Route path="/contact" element={<ContactForm />} /> {/* cabs page */}
       </Routes>
       {/* <PopularRoutes /> */}
 
@@ -49,4 +54,17 @@ function App() {
   );
 }
 
+// Protected Route to ensure the user is logged in
+function ProtectedRoute({ Component }) {
+  const token = localStorage.getItem("authToken");
+
+  if (!token) {
+    // Redirect to signup page if not logged in
+    window.location.href = "/signup";
+    return null; // Prevents the Profile page from rendering
+  }
+
+  // User is logged in, render the Profile page
+  return <Component />;
+}
 export default App;

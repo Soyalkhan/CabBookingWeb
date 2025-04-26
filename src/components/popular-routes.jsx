@@ -42,7 +42,7 @@ const PopularRoutes = ({ onRouteClick }) => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 mt-12">
-          <h2 className="text-6xl md:text-4xl font-bold mb-3">Best Cab Service In Gurgaon And Delhi or uttrakhand</h2>
+          <h2 className="text-[30px] md:text-[40px] font-bold mb-3">Best Cab Service In Gurgaon And Delhi or uttrakhand</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
             Bookmycab.co offers city taxis, inter-city cabs, and local cabs at hourly packages.
           </p>

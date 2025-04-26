@@ -467,7 +467,7 @@ export default function SignupPage() {
          <div
            className="h-full w-full bg-cover bg-center"
            style={{
-             backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-J5qIffvW8VCxmcHlphoawtdL5s6YY9.png')`,
+             backgroundImage: `url('/signup_banner.jpg')`,
              backgroundPosition: "center right",
            }}
          />

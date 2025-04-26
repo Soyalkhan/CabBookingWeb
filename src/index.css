@@ -57,13 +57,20 @@ body {
   font-family: 'Gilroy-Regular', sans-serif;
 }
 
-h1 {
+h1,h2 {
   /* headings use the Bold weight */
   font-family: 'Gilroy-Bold', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 900 !important;
 }
 
-h2 {
+/* h2 {
   font-family: 'Gilroy-Heavy', sans-serif;
+  letter-spacing: 1px;
+} */
+h3 {
+  font-family: 'Gilroy-Medium', sans-serif;
+  letter-spacing: 1px;
 }
 
 p {
