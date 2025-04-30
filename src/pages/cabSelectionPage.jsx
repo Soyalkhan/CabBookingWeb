@@ -158,14 +158,16 @@
 //     </div>
 //   )
 // }
+
+
 "use client";
 import React, { useState, useEffect } from "react";
-import { Car, Phone, MapPin } from "lucide-react";
-import  TopSearchBar  from "../components/TopSearchBar"; // Import the existing component
-import  CabCard  from "../components/CabCard"; // Import the CabCard component
-import Filters  from "../components/Filters"; // Import the Filters component
-import { useBooking } from "../components/BookingContext"; 
-import js from "@eslint/js";
+import { Car, Phone, MapPin } from 'lucide-react';
+import TopSearchBar from "../components/TopSearchBar"; // Import the existing component
+import CabCard from "../components/CabCard"; // Import the CabCard component
+import Filters from "../components/Filters"; // Import the Filters component
+import { useBooking } from "../components/BookingContext";
+
 const carData = [
   {
     id: 1,
@@ -257,39 +259,9 @@ export default function CarBookingPage() {
   const { bookingData } = useBooking();
 
   const [isMobile, setIsMobile] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [calculatedRates, setCalculatedRates] = useState([]);
-  const [km] = useState(149); // Fixed km for all cars
-  const [time] = useState(3); // Fixed time for all cars
-  const [allBookingDetails, setallBookingDetails] = useState({});
-
-
-
-  console.log("bookingData", bookingData); // Log the km and time from bookingData
-
-  useEffect(() => {
-    if(bookingData.distance === 0 ) {
-      console.error("No booking data available.");
-      const tempBookingData = JSON.parse(localStorage.getItem("bookingData"));
-      console.log('tempBookingData', tempBookingData);
-      if(tempBookingData.distance !== 0){ 
-        setallBookingDetails(tempBookingData); // Set booking data from local storage
-        console.log("Booking data retrieved from local storage:", allBookingDetails);
-      } else {
-        console.error("No booking data found in local storage.");
-      }
-      return;
-    }else{
-
-      if(bookingData){
-        setallBookingDetails(bookingData); // Set booking data from context
-        console.log("Booking data retrieved from context:", allBookingDetails);
-        localStorage.setItem("bookingData", JSON.stringify(bookingData)); // Store booking data in local storage
-      }
-      
-    }
-  }, [bookingData]);
-  
+  const [allBookingDetails, setAllBookingDetails] = useState({});
 
   // Check if the device is mobile
   useEffect(() => {
@@ -309,20 +281,39 @@ export default function CarBookingPage() {
     };
   }, []);
 
-  const handleFareCalculation = () => {
+  // Get booking data from context or local storage
+  useEffect(() => {
     setLoading(true);
+    
+    if (bookingData && bookingData.distance !== 0) {
+      setAllBookingDetails(bookingData);
+      localStorage.setItem("bookingData", JSON.stringify(bookingData));
+    } else {
+      const tempBookingData = JSON.parse(localStorage.getItem("bookingData"));
+      if (tempBookingData && tempBookingData.distance !== 0) {
+        setAllBookingDetails(tempBookingData);
+      } else {
+        console.error("No booking data found in context or local storage.");
+      }
+    }
+  }, [bookingData]);
 
-    // Simulate the calculation of the fare for each car
-    const updatedRates = carData.map((car) => {
-      const fare = km * car.perKmRate; // Calculate fare based on km
-      return { ...car, fare }; // Return car object with calculated fare
-    });
+  // Calculate rates automatically when booking details are available
+  useEffect(() => {
+    if (allBookingDetails && allBookingDetails.distance) {
+      // Calculate rates for each car based on distance
+      const updatedRates = carData.map((car) => {
+        const fare = Math.round(allBookingDetails.distance * car.perKmRate);
+        return { ...car, fare };
+      });
 
-    setTimeout(() => {
-      setCalculatedRates(updatedRates); // Update rates after calculation
-      setLoading(false); // Stop loading after calculation
-    }, 2000); // Simulate a delay (e.g., API call time)
-  };
+      // Simulate a short loading delay for better UX
+      setTimeout(() => {
+        setCalculatedRates(updatedRates);
+        setLoading(false);
+      }, 1000);
+    }
+  }, [allBookingDetails]);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -331,10 +322,13 @@ export default function CarBookingPage() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto py-4 px-4">
-        <div className="text-sm text-gray-700 mb-4">
-          Rates for <span className="font-bold">{allBookingDetails.distance} Kms</span> approx distance |{" "}
-          <span className="font-bold">{allBookingDetails.time} hr(s)</span> approx time
-        </div>
+        {allBookingDetails && allBookingDetails.distance && (
+          <div className="text-sm text-gray-700 mb-4">
+            Rates for <span className="font-bold">{allBookingDetails.distance} Kms</span> approx distance |{" "}
+            <span className="font-bold">{allBookingDetails.duration} </span> approx time and total toll plaza around{" "}
+            <span className="font-bold">{allBookingDetails.tolls}</span>
+          </div>
+        )}
 
         <div className="flex flex-col md:flex-row gap-6">
           {/* Filters Section - Desktop */}
@@ -348,31 +342,24 @@ export default function CarBookingPage() {
               <div className="p-4 rounded-lg shadow-sm mb-4 border border-gray-300">
                 <div className="flex items-center justify-between mb-2">
                   <h2 className="text-lg font-bold">Our Top Rated Partner</h2>
-                  <div className="flex items-center space-x-2">
-                    <img src="/abstract-travel-icon.png" alt="Savaari" className="h-8" />
-                    <img src="/abstract-travel-icon.png" alt="MakeMyTrip" className="h-8" />
-                  </div>
                 </div>
-                <p className="text-gray-600">India's Leading Outstation Cab Rentals Since 2006</p>
+                <p className="text-gray-600">India's Leading Outstation Cab Rentals Since 2013 experienced hill drivers</p>
               </div>
             </div>
 
-            {/* Calculate Rates Button */}
-            <button
-              onClick={handleFareCalculation}
-              className="mb-4 w-full bg-yellow-500 hover:bg-yellow-600 text-black py-2 px-4 rounded-md"
-            >
-              {loading ? "Calculating..." : "Calculate Rates"}
-            </button>
-
             {/* Car Cards */}
             <div>
-              {calculatedRates.length > 0 ? (
+              {loading ? (
+                <div className="flex flex-col items-center justify-center py-8">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500 mb-4"></div>
+                  <p className="text-gray-600">Calculating best rates for you...</p>
+                </div>
+              ) : calculatedRates.length > 0 ? (
                 calculatedRates.map((car) => (
                   <CabCard key={car.id} car={car} fare={car.fare} />
                 ))
               ) : (
-                <p className="text-gray-600">No cars available or calculation not done.</p>
+                <p className="text-gray-600">No cars available for this route.</p>
               )}
             </div>
           </div>

@@ -1,10 +1,27 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { ChevronDown, Check } from "lucide-react"
 
 // Rewritten CabCard without Next-specific UI components
-export default function CabCard({ car }) {
+export default function CabCard({ car, fare  }) {
   const [expandedInclusions, setExpandedInclusions] = useState(false)
   const [expandedCancellation, setExpandedCancellation] = useState(false)
+  const [allBookingDetails, setAllBookingDetails] = useState({});
+
+    useEffect(() => {
+      if (allBookingDetails && allBookingDetails.distance) {
+        // Calculate rates for each car based on distance
+        const updatedRates = carData.map((car) => {
+          const fare = Math.round(allBookingDetails.distance * car.perKmRate);
+          return { ...car, fare };
+        });
+  
+        // Simulate a short loading delay for better UX
+        setTimeout(() => {
+          setCalculatedRates(updatedRates);
+          setLoading(false);
+        }, 1000);
+      }
+    }, [allBookingDetails]);
 
   const toggleInclusions = () => {
     setExpandedInclusions(prev => !prev)
@@ -71,7 +88,7 @@ export default function CabCard({ car }) {
               </span>
             </div>
             <div className="text-right">
-              <span className="text-2xl font-bold">₹{car.price}</span>
+            <span className="text-2xl font-bold">₹{fare}</span>
             </div>
             <div className="text-right text-gray-500 text-sm">
               + ₹{car.charges} (Taxes & Charges)

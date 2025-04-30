@@ -279,6 +279,8 @@ const Header = () => {
             </div>
 
             <div className="flex flex-col space-y-4 p-4">
+
+            {!isLoggedIn && (
               <Link
                 to="/login"
                 onClick={handleMobileMenuClose}
@@ -287,7 +289,7 @@ const Header = () => {
                 <User className="h-5 w-5 mr-2" />
                 Login / Register
               </Link>
-
+            )}
               <a href="#" className="flex items-center text-gray-700 hover:text-yellow-500">
               <MessageSquare className="h-4 w-4 mr-2" />
               <span>WHATSAPP</span>

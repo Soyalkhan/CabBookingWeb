@@ -12,6 +12,7 @@ export const BookingProvider = ({ children }) => {
     fare: 0,
     distance: 0,
     tripType: "one-way",
+    duration: "" ,
     tripStart: "",
     tripEnd: "",
   });

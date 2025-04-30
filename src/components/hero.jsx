@@ -29,6 +29,7 @@ export default function Hero() {
   const [phone, setPhone] = useState("");
   const [fare, setFare] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [duration, setDuration] = useState(""); 
 
   // Initialize tripStart with current date and time
   const [tripType, setTripType] = useState("one-way");
@@ -61,11 +62,12 @@ export default function Hero() {
       console.log("Route calculation response:", data);
       const km = parseFloat(data.distance.replace(/[^0-9.]/g, "")); // Extract the numeric part of the distance
       const tolls = data.tolls || 0; // Assuming tolls is provided in the API response
-
+      const time = data.duration; // Set the duration from the API response
+      const totoalTollCount = data.tollSegments; // Assuming tollCount is provided in the API response
       // Calculate fare based on trip type
-      const baseFare = km * 15;
-      const calculatedFare =
-        tripType === "round-trip" ? baseFare * 1.8 : baseFare; // 10% discount on return journey
+      // const baseFare = km * 15;
+      // const calculatedFare =
+      //   tripType === "round-trip" ? baseFare * 1.8 : baseFare; // 10% discount on return journey
 
       // Now we just pass the necessary data to the next page
       const bookingData = {
@@ -73,8 +75,8 @@ export default function Hero() {
         destination,
         phone,
         distance: km,
-        tolls,
-        fare: calculatedFare,
+        tolls : totoalTollCount,
+        duration : time,
         tripType,
         tripStart,
         tripEnd: tripType === "round-trip" ? tripEnd : null,
