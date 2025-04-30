@@ -199,6 +199,7 @@ const Header = () => {
           <div className="flex items-center ml-12">
             <a href="/" className="flex items-center">
               <img src="/logov2.png" alt="bookmyCabs" className="h-10" />
+              {/* <img src="/logo3.png" alt="bookmyCabs" className="h-16" /> */}
               <span className="ml-2 text-yellow-500 font-bold text-3xl">
                 {/* Bookmy<span className="text-black">cab</span> */}
               </span>
