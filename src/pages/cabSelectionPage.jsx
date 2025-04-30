@@ -262,8 +262,19 @@ export default function CarBookingPage() {
   const [loading, setLoading] = useState(true);
   const [calculatedRates, setCalculatedRates] = useState([]);
   const [allBookingDetails, setAllBookingDetails] = useState({});
-
+  const [booking, setbooking] = useState({
+    pickup: "",
+    destination: "",
+    phone: "",
+    fare: 0,
+    distance: 0,
+    tripType: "one-way",
+    duration: "",
+    tripStart: "",
+    tripEnd: "",
+  });
   // Check if the device is mobile
+
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);

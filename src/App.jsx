@@ -15,7 +15,7 @@ import ProfilePage from "./pages/profilePage";
 import CarBookingPage from "./pages/cabSelectionPage";
 import ContactForm from "./pages/contact";
 import  BookingProvider  from "./components/BookingContext";
-
+import  ReviewBooking  from "./pages/reviewBooking";
 import "./App.css";
 
 function App() {
@@ -46,6 +46,7 @@ function App() {
         />{" "}
         {/* Profile page */}
         <Route path="/booking-summary" element={<CarBookingPage />} />{" "}
+        <Route path="/reviewbooking" element={<ReviewBooking/>} />{" "}
         {/* cabs page */}
         <Route path="/contact" element={<ContactForm />} /> {/* cabs page */}
       </Routes>
