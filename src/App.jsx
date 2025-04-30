@@ -14,11 +14,13 @@ import LoginPage from "./pages/login-page"; // Import SignupPage
 import ProfilePage from "./pages/profilePage";
 import CarBookingPage from "./pages/cabSelectionPage";
 import ContactForm from "./pages/contact";
+import  BookingProvider  from "./components/BookingContext";
 
 import "./App.css";
 
 function App() {
   return (
+    <BookingProvider>
     <Router>
       <Header />
 
@@ -51,6 +53,7 @@ function App() {
 
       <Footer />
     </Router>
+    </BookingProvider>
   );
 }
 

@@ -164,7 +164,8 @@ import { Car, Phone, MapPin } from "lucide-react";
 import  TopSearchBar  from "../components/TopSearchBar"; // Import the existing component
 import  CabCard  from "../components/CabCard"; // Import the CabCard component
 import Filters  from "../components/Filters"; // Import the Filters component
-
+import { useBooking } from "../components/BookingContext"; 
+import js from "@eslint/js";
 const carData = [
   {
     id: 1,
@@ -253,11 +254,42 @@ const carData = [
 ];
 
 export default function CarBookingPage() {
+  const { bookingData } = useBooking();
+
   const [isMobile, setIsMobile] = useState(false);
   const [loading, setLoading] = useState(false);
   const [calculatedRates, setCalculatedRates] = useState([]);
   const [km] = useState(149); // Fixed km for all cars
   const [time] = useState(3); // Fixed time for all cars
+  const [allBookingDetails, setallBookingDetails] = useState({});
+
+
+
+  console.log("bookingData", bookingData); // Log the km and time from bookingData
+
+  useEffect(() => {
+    if(bookingData.distance === 0 ) {
+      console.error("No booking data available.");
+      const tempBookingData = JSON.parse(localStorage.getItem("bookingData"));
+      console.log('tempBookingData', tempBookingData);
+      if(tempBookingData.distance !== 0){ 
+        setallBookingDetails(tempBookingData); // Set booking data from local storage
+        console.log("Booking data retrieved from local storage:", allBookingDetails);
+      } else {
+        console.error("No booking data found in local storage.");
+      }
+      return;
+    }else{
+
+      if(bookingData){
+        setallBookingDetails(bookingData); // Set booking data from context
+        console.log("Booking data retrieved from context:", allBookingDetails);
+        localStorage.setItem("bookingData", JSON.stringify(bookingData)); // Store booking data in local storage
+      }
+      
+    }
+  }, [bookingData]);
+  
 
   // Check if the device is mobile
   useEffect(() => {
@@ -300,8 +332,8 @@ export default function CarBookingPage() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto py-4 px-4">
         <div className="text-sm text-gray-700 mb-4">
-          Rates for <span className="font-bold">{km} Kms</span> approx distance |{" "}
-          <span className="font-bold">{time} hr(s)</span> approx time
+          Rates for <span className="font-bold">{allBookingDetails.distance} Kms</span> approx distance |{" "}
+          <span className="font-bold">{allBookingDetails.time} hr(s)</span> approx time
         </div>
 
         <div className="flex flex-col md:flex-row gap-6">
