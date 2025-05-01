@@ -239,14 +239,18 @@ export default function LoginPage() {
       });
 
       const data = await response.json();
+console.log("data",data);
 
       if (response.ok) {
         // Save token to localStorage if login is successful
         localStorage.setItem("authToken", data.token);
         setMessages([{ type: "success", msg: "Login successful! Redirecting..." }]);
         setTimeout(() => {
+          if(data.user.role ==="Admin"){
+            window.location.href = "/admin"; // Redirect to admin page if admin
+          }else {
           window.location.href = "/profile"; // Redirect after success
-        }, 1500);
+      }}, 5000);
       } else {
         setMessages([{ type: "error", msg: data.msg || "Login failed. Please try again." }]);
       }

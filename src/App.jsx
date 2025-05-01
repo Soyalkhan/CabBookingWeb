@@ -17,11 +17,18 @@ import ContactForm from "./pages/contact";
 import  BookingProvider  from "./components/BookingContext";
 import  ReviewBooking  from "./pages/reviewBooking";
 import "./App.css";
+import AdminPanel from "./pages/AdminPanel";
 
 function App() {
   return (
     <BookingProvider>
+
+     
+        
+
     <Router>
+      
+
       <Header />
 
       <Routes>
@@ -38,17 +45,22 @@ function App() {
           }
         />{" "}
         {/* Home page */}
-        <Route path="/signup" element={<SignupPage />} /> {/* Signup page */}
-        <Route path="/login" element={<LoginPage />} /> {/* Signup page */}
+        <Route path="/signup" element={<SignupPage />} /> 
+        <Route path="/login" element={<LoginPage />} /> 
         <Route
           path="/profile"
           element={<ProtectedRoute Component={ProfilePage} />}
-        />{" "}
+        />
+        
+        {" "}
+        < Route
+          path="/admin"
+          element={<ProtectedRoute Component={AdminPanel} />}
+        />
         {/* Profile page */}
         <Route path="/booking-summary" element={<CarBookingPage />} />{" "}
         <Route path="/reviewbooking" element={<ReviewBooking/>} />{" "}
-        {/* cabs page */}
-        <Route path="/contact" element={<ContactForm />} /> {/* cabs page */}
+        
       </Routes>
       {/* <PopularRoutes /> */}
 
@@ -68,6 +80,7 @@ function ProtectedRoute({ Component }) {
     return null; // Prevents the Profile page from rendering
   }
 
+  
   // User is logged in, render the Profile page
   return <Component />;
 }
