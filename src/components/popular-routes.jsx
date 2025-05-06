@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import React from "react";
-
+import CharDhamYatraFrom from "./CharDhamBookingForm";
 const PopularRoutes = ({ onRouteClick }) => {
   const routes = [
     {
@@ -90,11 +90,11 @@ const PopularRoutes = ({ onRouteClick }) => {
     <>
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 ">
-          <div className="text-center mb-12 mt-12 bg-[#eca91b]  p-8 text-white">
-            <h2 className="text-[30px] md:text-[30px] font-bold mb-3">
+          <div className="text-center mb-12 mt-12 p-8 text-amber-200 ">
+            <h2 className="text-[30px] md:text-[80px] font-semibold mb-3">
               Best Cab Service In Gurgaon And Delhi or Uttarakhand
             </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
+            <p className="text-red-800 max-w-3xl mx-auto">
               *Bookmycab.co offers city taxis, inter-city cabs, and local cabs
               at hourly packages.
             </p>
@@ -134,17 +134,29 @@ const PopularRoutes = ({ onRouteClick }) => {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-4 bg-white md:p-32 p-4 ">
         <div className="text-center mb-8">
+          <span className="text-yellow-500 text-3xl">Book your cab for</span>
           <h1 className="text-[30px] md:text-[60px] font-bold mb-3">
-            Chardham Yarta{" "}
+            Char Dham Yarta{" "}
           </h1>
         </div>
-        <div className="relative h-[400px] overflow-hidden">
-          <img
-            src={"/Chardham-Yatra-banner.jpg" || "/placeholder.svg"}
-            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
-          />
+        <div className="relative overflow-hidden">
+          <picture>
+            <source srcSet="/banner6mobile.png" media="(max-width: 767px)" />
+            <img
+              src="/banner6.png"
+              alt="Banner"
+              className=" rounded-3xl w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+            />
+          </picture>
+        </div>
+      </section>
+
+
+      <section className="py-4 bg-white md:p-32 p-4 ">
+        <div className="text-center mb-8">
+        <CharDhamYatraFrom />
         </div>
       </section>
     </>
