@@ -171,7 +171,7 @@ import { useBooking } from "../components/BookingContext";
 const carData = [
   {
     id: 1,
-    name: "Swift",
+    name: "Swift Desire",
     type: "Hatchback",
     rating: 4.2,
     seats: 4,
@@ -180,7 +180,7 @@ const carData = [
     fuelType: ["CNG", "Petrol"],
     price: 1849,
     charges: 499,
-    image: "/urban-commuter.png",
+    image: "/swift_desire.jpg",
     perKmRate: 15, // Dynamic pricing based on distance
   },
   {
@@ -194,21 +194,21 @@ const carData = [
     fuelType: ["CNG", "Petrol"],
     price: 2849,
     charges: 699,
-    image: "/silver-innova-cityscape.png",
+    image: "/innova.png",
     perKmRate: 20, // Dynamic pricing based on distance
   },
   {
     id: 3,
-    name: "Dzire",
-    type: "Sedan",
-    rating: 4.1,
-    seats: 4,
+    name: "Innova Crysta",
+    type: "SUV",
+    rating: 4.6,
+    seats: 6,
     ac: true,
     bags: 1,
     fuelType: ["CNG", "Petrol"],
-    price: 1883,
+    price: 3500,
     charges: 619,
-    image: "/modern-city-sedan.png",
+    image: "innova.png",
     perKmRate: 18, // Dynamic pricing based on distance
   },
   {
@@ -250,7 +250,7 @@ const carData = [
     fuelType: ["CNG", "Petrol"],
     price: 2499,
     charges: 649,
-    image: "/modern-city-street-ertiga.png",
+    image: "/ertiga.png",
     perKmRate: 22, // Dynamic pricing based on distance
   },
 ];
