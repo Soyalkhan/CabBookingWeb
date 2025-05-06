@@ -91,13 +91,37 @@ const PopularRoutes = ({ onRouteClick }) => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 ">
           <div className="text-center mb-12 mt-12 p-8 text-amber-200 ">
-            <h2 className="text-[30px] md:text-[80px] font-semibold mb-3">
-              Best Cab Service In Gurgaon And Delhi or Uttarakhand
+            <h2 className="text-[30px] md:text-[40px] font-semibold mb-3">
+              Best Cab Service In Gurgaon And Delhi or Kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie
             </h2>
-            <p className="text-red-800 max-w-3xl mx-auto">
-              *Bookmycab.co offers city taxis, inter-city cabs, and local cabs
-              at hourly packages.
+            <marquee className="bg-yellow-300 border-1 border-black" direction="left" scrollamount="15" loop="infinite">
+            <p className="text-gray-600 p-2 text-[20px] md:text-[30px] font-semibold mb-3 tracking-wider">
+              
+
+              Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+              • Bookmycab.co is a leading taxi service provider in Delhi kotdwar and Haridwar,Rishikesh,dehradoon,and Mussoorie •
+
             </p>
+            </marquee>
           </div>
           <div className="text-center mb-8">
             <h1 className="text-[30px] md:text-[40px] font-bold mb-3">
@@ -134,7 +158,7 @@ const PopularRoutes = ({ onRouteClick }) => {
         </div>
       </section>
 
-      <section className="py-4 bg-white md:p-32 p-4 ">
+      <section className="py-4 bg-white md:p-8 p-4 ">
         <div className="text-center mb-8">
           <span className="text-yellow-500 text-3xl">Book your cab for</span>
           <h1 className="text-[30px] md:text-[60px] font-bold mb-3">
@@ -154,7 +178,7 @@ const PopularRoutes = ({ onRouteClick }) => {
       </section>
 
 
-      <section className="py-4 bg-white md:p-32 p-4 ">
+      <section className="py-4 bg-white p-4 ">
         <div className="text-center mb-8">
         <CharDhamYatraFrom />
         </div>
