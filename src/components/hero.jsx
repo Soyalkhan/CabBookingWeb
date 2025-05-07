@@ -98,7 +98,7 @@ export default function Hero() {
   if (!isLoaded) return <p>Loading Maps…</p>;
 
   return (
-    <section className="relative w-full h-[700px] bg-black/10 text-white">
+    <section className=" p-4 relative w-full h-[700px] bg-black/10 text-white">
       {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center filter brightness-50 z-0"
@@ -107,7 +107,7 @@ export default function Hero() {
 
       <div className="max-w-4xl relative z-10 container mx-auto px-4 py-12 h-full flex flex-col justify-center">
         {/* Service Tabs */}
-        <div className="flex flex-wrap mb-8 border-b border-gray-700">
+        <div className="flex flex-wrap mb-2 mt-6 border-b border-gray-700">
           <div className="mr-8 mb-4 flex items-center text-white font-medium">
             <MapPin className="h-6 w-6 mr-2" />
             <span className="text-xl">Cabs</span>

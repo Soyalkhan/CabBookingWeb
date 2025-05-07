@@ -1,4 +1,4 @@
-import { ThumbsUp, UserCheck, Home } from "lucide-react"
+import { ThumbsUp, UserCheck, Home , CarFrontIcon } from "lucide-react"
 import React from "react"
 const WhyChooseUs = () => {
   const features = [
@@ -20,6 +20,13 @@ const WhyChooseUs = () => {
       title: "Door-to-door service",
       description: "You can be picked up and dropped off directly at your desired location",
     },
+    {
+      id: 4,
+      icon: <CarFrontIcon className="h-6 w-6" />,
+      title: "Experienced drivers",
+      description: "Our drivers are experienced and know the best routes",
+      
+    }
   ]
 
   return (
@@ -34,7 +41,7 @@ const WhyChooseUs = () => {
           </span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
           {features.map((feature) => (
             <div key={feature.id} className="bg-white rounded-lg p-8 shadow-sm">
               <div className="w-16 h-16 rounded-full border-2 border-yellow-400 flex items-center justify-center mb-6">
