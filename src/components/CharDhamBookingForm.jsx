@@ -514,17 +514,30 @@
 
 
 
-
 import React from "react"
 import { useState, useRef, useEffect } from "react"
-import { User, MapPin, Users, Calendar, Phone, PhoneCall, FileCheck, Car, CheckCircle2, AlertCircle, X, Mountain, Loader2 } from 'lucide-react'
+import {
+  User,
+  MapPin,
+  Users,
+  Calendar,
+  Phone,
+  PhoneCall,
+  FileCheck,
+  Car,
+  CheckCircle2,
+  AlertCircle,
+  X,
+  Mountain,
+  Loader2,
+} from "lucide-react"
 
 const carOptions = [
   {
     id: "suv",
     name: "SUV (Toyota Innova/Ertiga)",
     capacity: 6,
-    price: "9000/day/person", 
+    price: "9000/day/person",
     image: "/innova.png",
   },
   {
@@ -551,12 +564,10 @@ const carOptions = [
 ]
 
 const CharDhamBookingForm = () => {
-  // Web3Forms API key
-  const WEB3KEY = import.meta.env.VITE_WEB3KEY
-  
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
+    email: "", // Added email field
     pickupAddress: "",
     travelers: "2",
     journeyStartDate: "",
@@ -565,6 +576,7 @@ const CharDhamBookingForm = () => {
     alternateNumber: "",
     hasPasses: false,
     selectedCar: "",
+    message: "", // Added message field
   })
 
   const [errors, setErrors] = useState({})
@@ -572,7 +584,7 @@ const CharDhamBookingForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [submitError, setSubmitError] = useState("")
   const modalRef = useRef(null)
-  
+
   // Close modal when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -622,6 +634,7 @@ const CharDhamBookingForm = () => {
   const resetForm = () => {
     setFormData({
       name: "",
+      email: "",
       pickupAddress: "",
       travelers: "2",
       journeyStartDate: "",
@@ -630,6 +643,7 @@ const CharDhamBookingForm = () => {
       alternateNumber: "",
       hasPasses: false,
       selectedCar: "",
+      message: "",
     })
     setErrors({})
     setSubmitError("")
@@ -640,6 +654,12 @@ const CharDhamBookingForm = () => {
 
     if (!formData.name.trim()) {
       newErrors.name = "Name is required"
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required"
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address"
     }
 
     if (!formData.pickupAddress.trim()) {
@@ -694,37 +714,6 @@ const CharDhamBookingForm = () => {
     }
   }
 
-  // Format the form data for email
-  const formatEmailContent = () => {
-    const selectedCarDetails = carOptions.find(car => car.id === formData.selectedCar) || {};
-  
-    return `
-  Char Dham Yatra Booking Request
-  -------------------------------
-  Package: 9Days/10Nights
-  
-  Customer Details:
-  - Name: ${formData.name}
-  - Mobile Number: ${formData.mobileNumber}
-  ${formData.alternateNumber ? `- Alternate Number: ${formData.alternateNumber}` : ''}
-  - Pickup Address: ${formData.pickupAddress}
-  
-  Journey Details:
-  - Number of Travelers: ${formData.travelers}
-  - Journey Start Date: ${formData.journeyStartDate}
-  - Journey End Date: ${formData.journeyEndDate}
-  - Already Registered for Char Dham Yatra: ${formData.hasPasses ? 'Yes' : 'No'}
-  
-  Vehicle Selection:
-  - Selected Vehicle: ${selectedCarDetails.name || ''}
-  - Vehicle Capacity: ${selectedCarDetails.capacity || ''} passengers
-  - Price: ₹${selectedCarDetails.price || ''}
-  
-  Submitted on: ${new Date().toLocaleString()}
-  `.trim();
-  };
-  
-
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -736,50 +725,49 @@ const CharDhamBookingForm = () => {
     setSubmitError("")
 
     try {
-      // Selected car details for the subject line
-      const selectedCar = carOptions.find(car => car.id === formData.selectedCar);
-      
-      // Prepare form data for Web3Forms
-      const formDataToSend = new FormData();
-      formDataToSend.append('access_key', "c090967e-ef05-4aab-b96f-c61660cdb371");
-      formDataToSend.append('subject', `Char Dham Yatra Booking - ${formData.name} - ${formData.travelers} travelers`);
-      formDataToSend.append('from_name', 'Char Dham Booking Form');
-      formDataToSend.append('name', formData.name);
-      formDataToSend.append('email', 'no-reply@chardhamyatra.com'); // You can change this if needed
-      formDataToSend.append('phone', formData.mobileNumber);
-      formDataToSend.append('message', formatEmailContent());
-      
-      // Additional fields for better organization
-      formDataToSend.append('travelers', formData.travelers);
-      formDataToSend.append('pickup_address', formData.pickupAddress);
-      formDataToSend.append('start_date', formData.journeyStartDate);
-      formDataToSend.append('end_date', formData.journeyEndDate);
-      formDataToSend.append('alternate_number', formData.alternateNumber || 'Not provided');
-      formDataToSend.append('has_passes', formData.hasPasses ? 'Yes' : 'No');
-      formDataToSend.append('selected_car', selectedCar ? selectedCar.name : '');
-      formDataToSend.append('car_capacity', selectedCar ? selectedCar.capacity : '');
-      formDataToSend.append('car_price', selectedCar ? selectedCar.price : '');
+      // Get selected car details
+      const selectedCarDetails = carOptions.find((car) => car.id === formData.selectedCar) || {}
 
-      // Send the form data to Web3Forms
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formDataToSend
-      });
-      
-      const data = await response.json();
-      console.log("Response from Web3Forms:", data);
-      
-      if (data.success) {
-        setIsSubmitted(true);
-        resetForm();
+      // Prepare data for API
+      const dataToSend = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.mobileNumber,
+        alternateNumber: formData.alternateNumber || "",
+        travelers: formData.travelers,
+        pickupAddress: formData.pickupAddress,
+        startDate: formData.journeyStartDate,
+        endDate: formData.journeyEndDate,
+        hasPasses: formData.hasPasses,
+        selectedCar: selectedCarDetails.name || "",
+        car_capacity: selectedCarDetails.capacity || "",
+        car_price: selectedCarDetails.price || "",
+        message: formData.message || "Char Dham Yatra Booking Request",
+      }
+
+      console.log("Data to send:", dataToSend)
+      // Send data to your custom API
+      const response = await fetch("http://localhost:5000/api/contact/chardham", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToSend),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        resetForm()
       } else {
-        throw new Error(data.message || 'Something went wrong. Please try again.');
+        throw new Error(data.message || "Something went wrong. Please try again.")
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      setSubmitError(error.message || "Failed to submit form. Please try again later.");
+      console.error("Error submitting form:", error)
+      setSubmitError(error.message || "Failed to submit form. Please try again later.")
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
   }
 
@@ -811,7 +799,8 @@ const CharDhamBookingForm = () => {
                 <h2 className="text-4xl text-gray-800 mb-2 font-bold">Char Dham Yatra Booking</h2>
                 <p className="text-gray-600 text-base">
                   Book your spiritual journey to Gangotri, Yamunotri, Kedarnath, and Badrinath
-                  <strong> 9Days/10Nights </strong> with us. Experience the divine beauty of the Uttrakhand and the sacred shrines.
+                  <strong> 9Days/10Nights </strong> with us. Experience the divine beauty of the Uttrakhand and the
+                  sacred shrines.
                 </p>
               </div>
 
@@ -839,7 +828,7 @@ const CharDhamBookingForm = () => {
                       </p>
                     </div>
                   )}
-                  
+
                   <div className="flex flex-col gap-2">
                     <label htmlFor="name" className="flex items-center gap-2 font-semibold text-gray-800">
                       <User size={18} />
@@ -857,6 +846,25 @@ const CharDhamBookingForm = () => {
                       } rounded-lg text-base transition-colors focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100`}
                     />
                     {errors.name && <span className="text-red-500 text-sm mt-1">{errors.name}</span>}
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="email" className="flex items-center gap-2 font-semibold text-gray-800">
+                      <User size={18} />
+                      Your Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Enter your email address"
+                      className={`py-3 px-4 border ${
+                        errors.email ? "border-red-500" : "border-gray-300"
+                      } rounded-lg text-base transition-colors focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100`}
+                    />
+                    {errors.email && <span className="text-red-500 text-sm mt-1">{errors.email}</span>}
                   </div>
 
                   <div className="flex flex-col gap-2">
@@ -1011,7 +1019,10 @@ const CharDhamBookingForm = () => {
                       <Car size={18} />
                       Select Car
                     </label>
-                    <p className="text-sm text-red-600">*These rates are only applicable if you are booking from (Delhi NCR, Rishikesh, Dehradun, Haridwar, Nainital, Meerut)</p>
+                    <p className="text-sm text-red-600">
+                      *These rates are only applicable if you are booking from (Delhi NCR, Rishikesh, Dehradun,
+                      Haridwar, Nainital, Meerut)
+                    </p>
                     <div className="grid grid-cols-1 gap-4 mt-2">
                       {carOptions.map((car) => (
                         <div
@@ -1050,6 +1061,22 @@ const CharDhamBookingForm = () => {
                       ))}
                     </div>
                     {errors.selectedCar && <span className="text-red-500 text-sm mt-1">{errors.selectedCar}</span>}
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="message" className="flex items-center gap-2 font-semibold text-gray-800">
+                      <User size={18} />
+                      Additional Message (Optional)
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Any special requirements or questions?"
+                      className="py-3 px-4 border border-gray-300 rounded-lg text-base transition-colors focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100"
+                      rows={3}
+                    />
                   </div>
 
                   <div className="flex flex-col gap-6 mt-2">
