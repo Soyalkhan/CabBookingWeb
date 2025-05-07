@@ -90,12 +90,12 @@ const PopularRoutes = ({ onRouteClick }) => {
     <>
       <section className="py-8 bg-white">
         <div className="container mx-auto px-4 ">
-          <div className="text-center mb-12 mt-12 p-8 text-amber-200 ">
-            {/* <h2 className="text-[30px] md:text-[40px] font-semibold mb-3">
+          {/* <div className="text-center mb-12 mt-12 p-8 text-amber-200 ">
+             <h2 className="text-[30px] md:text-[40px] font-semibold mb-3">
               Best Cab Service In Gurgaon And Delhi or Kotdwar and Haridwar,<br/>Rishikesh,dehradoon,and Mussoorie
-            </h2> */}
+            </h2> 
     
-          </div>
+          </div> */}
           <div className="text-center mb-8">
             <h1 className="text-[30px] md:text-[40px] font-bold mb-3">
               Popular Routes
