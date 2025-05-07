@@ -9,23 +9,23 @@ const Testimonials = () => {
       id: 1,
       name: "Saloni Gupta",
       location: "New Delhi, Delhi",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/person2.jpg",
       testimonial:
         "The driver was punctual and professional. The cab was clean and comfortable. I had a great experience and will definitely use this service again for my future travels. Highly recommended!",
     },
     {
       id: 2,
       name: "Ankita Mahawar",
-      location: "Pune, Maharashtra",
-      image: "/placeholder.svg?height=200&width=200",
+      location: "Dugadda, Uttrakhand",
+      image: "/person1.jpeg",
       testimonial:
         "The service was excellent- thankyou. My driver was waiting at arrival for me with clear sign. He introduced himself, was very polite and friendly and drove me without delay. I will definitely use your service again. Your service, and reliability, made a long stressful journey end positively. Everything went perfectly! I will be pleased to recommend this service to my family and friends.",
     },
     {
       id: 3,
       name: "Harshit",
-      location: "Bengaluru, Karnataka",
-      image: "/placeholder.svg?height=200&width=200",
+      location: "Haridwar, Uttrakhand",
+      image: "/person3.jpg",
       testimonial:
         "Excellent service from booking to drop-off. The driver was knowledgeable about the routes and very courteous. The online booking process was simple and user-friendly. I appreciate the timely service and will book again.",
     },

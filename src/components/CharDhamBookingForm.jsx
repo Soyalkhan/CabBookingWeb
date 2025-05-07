@@ -781,6 +781,9 @@ const CharDhamBookingForm = () => {
         Book Your Char Dham Yatra
       </button>
 
+
+
+
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-50 p-4 animate-fadeIn">
           <div

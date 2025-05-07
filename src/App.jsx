@@ -14,58 +14,53 @@ import LoginPage from "./pages/login-page"; // Import SignupPage
 import ProfilePage from "./pages/profilePage";
 import CarBookingPage from "./pages/cabSelectionPage";
 import ContactForm from "./pages/contact";
-import  BookingProvider  from "./components/BookingContext";
-import  ReviewBooking  from "./pages/reviewBooking";
+import BookingProvider from "./components/BookingContext";
+import ReviewBooking from "./pages/reviewBooking";
 import "./App.css";
 import AdminPanel from "./pages/AdminPanel";
+import TemplateSection from "./components/TemplatesShowcase";
+import AnnoucementBar from "./components/annoucementBar";
 
 function App() {
   return (
     <BookingProvider>
+      <Router>
+        <AnnoucementBar />
+        <Header />
 
-     
-        
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <PopularRoutes />
+                <TemplateSection />
+                <Testimoanils />
+                <Whychooseus />
+                <GetInTouch />
+              </>
+            }
+          />{" "}
+          {/* Home page */}
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/profile"
+            element={<ProtectedRoute Component={ProfilePage} />}
+          />{" "}
+          <Route
+            path="/admin"
+            element={<ProtectedRoute Component={AdminPanel} />}
+          />
+          {/* Profile page */}
+          <Route path="/booking-summary" element={<CarBookingPage />} />{" "}
+          <Route path="/reviewbooking" element={<ReviewBooking />} />{" "}
+        </Routes>
+        {/* <PopularRoutes /> */}
 
-    <Router>
-      
-
-      <Header />
-
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <PopularRoutes />
-              <Testimoanils />
-              <Whychooseus />
-              <GetInTouch />
-            </>
-          }
-        />{" "}
-        {/* Home page */}
-        <Route path="/signup" element={<SignupPage />} /> 
-        <Route path="/login" element={<LoginPage />} /> 
-        <Route
-          path="/profile"
-          element={<ProtectedRoute Component={ProfilePage} />}
-        />
-        
-        {" "}
-        < Route
-          path="/admin"
-          element={<ProtectedRoute Component={AdminPanel} />}
-        />
-        {/* Profile page */}
-        <Route path="/booking-summary" element={<CarBookingPage />} />{" "}
-        <Route path="/reviewbooking" element={<ReviewBooking/>} />{" "}
-        
-      </Routes>
-      {/* <PopularRoutes /> */}
-
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
     </BookingProvider>
   );
 }
@@ -80,7 +75,6 @@ function ProtectedRoute({ Component }) {
     return null; // Prevents the Profile page from rendering
   }
 
-  
   // User is logged in, render the Profile page
   return <Component />;
 }
