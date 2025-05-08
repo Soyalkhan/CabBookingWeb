@@ -106,7 +106,7 @@ export default function SignupPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/signup", {
+      const response = await fetch("https://cab-booking-backend.vercel.app/api/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -164,7 +164,7 @@ export default function SignupPage() {
     setIsOtpSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/verify", {
+      const response = await fetch("https://cab-booking-backend.vercel.app/api/auth/verify", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

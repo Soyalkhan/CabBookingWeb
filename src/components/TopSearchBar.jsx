@@ -177,7 +177,7 @@ export default function TopSearchBar() {
     setLoading(true);
     try {
       const res = await fetch(
-        "http://localhost:5000/api/route/calculate",
+        "https://cab-booking-backend.vercel.app/api/route/calculate",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

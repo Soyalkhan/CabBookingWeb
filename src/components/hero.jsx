@@ -53,7 +53,7 @@ export default function Hero() {
     }
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/route/calculate", {
+      const res = await fetch("https://cab-booking-backend.vercel.app/api/route/calculate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ from: pickup, to: destination }),

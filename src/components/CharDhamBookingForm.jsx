@@ -747,7 +747,7 @@ const CharDhamBookingForm = () => {
 
       console.log("Data to send:", dataToSend)
       // Send data to your custom API
-      const response = await fetch("http://localhost:5000/api/contact/chardham", {
+      const response = await fetch("https://cab-booking-backend.vercel.app/api/contact/chardham", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
