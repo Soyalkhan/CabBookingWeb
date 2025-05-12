@@ -535,30 +535,30 @@ import {
 const carOptions = [
   {
     id: "suv",
-    name: "SUV (Toyota Innova/Ertiga)",
+    name: "SUV (Toyota Innova)",
     capacity: 6,
-    price: "9000/day/person",
+    price: "6000/day",
     image: "/innova.png",
   },
   {
     id: "sedan",
     name: "Sedan (Swift Dzire/ Etios)",
     capacity: 4,
-    price: "9000/day/person",
+    price: "3500/day",
     image: "/swift_desire.jpg",
   },
   {
     id: "tempo",
     name: "Tempo Traveller Force",
     capacity: 12,
-    price: "18000/day/person",
+    price: "8000/day",
     image: "/tempo.png",
   },
   {
     id: "luxury",
     name: "Maruti Ertiga",
     capacity: 6,
-    price: "9000/day/person",
+    price: "4000/day",
     image: "/ertiga.png",
   },
 ]
@@ -1037,11 +1037,11 @@ const CharDhamBookingForm = () => {
                           } rounded-lg cursor-pointer transition-all duration-300 hover:border-yellow-400 hover:shadow-md`}
                           onClick={() => setFormData((prev) => ({ ...prev, selectedCar: car.id }))}
                         >
-                          <div className="w-full md:w-[100px] h-[70px] overflow-hidden rounded-md">
+                          <div className="w-full md:w-[100px] h-[70px] overflow-hidden rounded-md flex justify-center">
                             <img
                               src={car.image || "/placeholder.svg"}
                               alt={car.name}
-                              className="w-full h-full object-cover"
+                              className="w-[130px] h-full md:w-3xl object-cover "
                             />
                           </div>
                           <div className="flex flex-col">
