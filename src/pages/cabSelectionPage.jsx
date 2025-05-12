@@ -191,7 +191,7 @@ const carData = [
     seats: 6,
     ac: true,
     bags: 2,
-    fuelType: ["CNG", "Petrol"],
+    fuelType: ["Desiel"],
     price: 2849,
     charges: 699,
     image: "/innova.png",
@@ -205,7 +205,7 @@ const carData = [
     seats: 6,
     ac: true,
     bags: 1,
-    fuelType: ["CNG", "Petrol"],
+    fuelType: ["Desiel"],
     price: 3500,
     charges: 619,
     image: "innova.png",
@@ -225,20 +225,20 @@ const carData = [
     image: "/urban-wagon-r.png",
     perKmRate: 14, // Dynamic pricing based on distance
   },
-  {
-    id: 5,
-    name: "Celerio",
-    type: "Hatchback",
-    rating: 3.9,
-    seats: 4,
-    ac: true,
-    bags: 1,
-    fuelType: ["CNG", "Petrol"],
-    price: 1699,
-    charges: 449,
-    image: "/vibrant-city-celerio.png",
-    perKmRate: 12, // Dynamic pricing based on distance
-  },
+  // {
+  //   id: 5,
+  //   name: "Celerio",
+  //   type: "Hatchback",
+  //   rating: 3.9,
+  //   seats: 4,
+  //   ac: true,
+  //   bags: 1,
+  //   fuelType: ["CNG", "Petrol"],
+  //   price: 1699,
+  //   charges: 449,
+  //   image: "/vibrant-city-celerio.png",
+  //   perKmRate: 12, // Dynamic pricing based on distance
+  // },
   {
     id: 6,
     name: "Ertiga",
@@ -252,6 +252,20 @@ const carData = [
     charges: 649,
     image: "/ertiga.png",
     perKmRate: 22, // Dynamic pricing based on distance
+  },
+  {
+    id: 7,
+    name: "Tempo Traveler",
+    type: "LCV",
+    rating: 4.2,
+    seats: 12,
+    ac: true,
+    bags: 2,
+    fuelType: ["CNG", "Desiel"],
+    price: 2499,
+    charges: 649,
+    image: "/tempo.png",
+    perKmRate: 26.2, // Dynamic pricing based on distance
   },
 ];
 
